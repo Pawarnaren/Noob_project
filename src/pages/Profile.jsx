@@ -16,7 +16,7 @@ const Profile = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get("http://localhost:1090/api/v1/get-user-information", { headers });
+      const response = await axios.get("https://booknaren.onrender.com/api/v1/get-user-information", { headers });
       console.log(response.data);
       setProfile(response.data); // Log the response data for debugging
     };
@@ -24,16 +24,16 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className='bg-zinc-900 px-2 md:px-12 flex flex-col md:flex-row h-screen py-8 gap-4 h-screen z-20 text-white'>
-      {!Profile && <div className='w-full  flex items-center justify-center'>
+    <div className='z-20 flex flex-col h-screen gap-4 px-2 py-8 text-white bg-zinc-900 md:px-12 md:flex-row'>
+      {!Profile && <div className='flex items-center justify-center w-full'>
          <Loader />
         </div>}
       {Profile &&  <>
-      <div className='md:w-1/6  w-full '>
+      <div className='w-full md:w-1/6 '>
         <Sidebar data={Profile} />
         <MobileNav />
       </div>
-      <div className='md:w-5/6 sm:w-full h-screen'>
+      <div className='h-screen md:w-5/6 sm:w-full'>
         <Outlet />
       </div>
      </>}

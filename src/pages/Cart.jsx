@@ -18,7 +18,7 @@ const Cart = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get("http://localhost:1090/api/v1/get-user-cart", { headers });
+        const response = await axios.get("https://booknaren.onrender.com/api/v1/get-user-cart", { headers });
         setCart(response.data.data);
       } catch (error) {
         console.error("Error fetching cart:", error);
@@ -29,7 +29,7 @@ const Cart = () => {
 
   const deleteItem = async (bookid) => {
     try {
-      const response = await axios.put("http://localhost:1090/api/v1/delete-from-cart", {}, {
+      const response = await axios.put("https://booknaren.onrender.com/api/v1/delete-from-cart", {}, {
         headers: {
           ...headers,
           bookid
@@ -54,7 +54,7 @@ const Cart = () => {
 
   const PlaceOrder = async () => {
     try {
-      const response = await axios.post("http://localhost:1090/api/v1/place-order", { order: cart }, { headers });
+      const response = await axios.post("https://booknaren.onrender.com/api/v1/place-order", { order: cart }, { headers });
       alert(response.data.message);
       navigate("/profile/orderHistory");
     } catch (error) {
@@ -75,18 +75,18 @@ const Cart = () => {
       )}
       {cart && cart.length > 0 && (
         <div className='bg-zinc-900'>
-          <h1 className="text-3xl font-bold text-zinc-500 mb-8 text-center pt-3">Your Cart</h1>
+          <h1 className="pt-3 mb-8 text-3xl font-bold text-center text-zinc-500">Your Cart</h1>
           {cart.map((items, i) =>
             <div className='w-[95vw] my-4 rounded flex flex-col md:flex-row p-4 bg-zinc-800 justify-start items-center gap-8 m-4' key={i}>
               <img src={items.url} alt="/" className='h-[20vh] md:h-[10vh] object-cover' />
-              <div className='w-full md:w-auto flex-1'>
-                <h1 className='text-2xl text-zinc-100 font-semibold text-start mt-2 md:mt-0'>{items.title}</h1>
-                <p className='text-normal text-zinc-300 mt-2 hidden lg:block'>{items.desc.slice(0, 100)}...</p>
-                <p className='text-normal text-zinc-300 mt-2 md:block lg:hidden'>{items.desc.slice(0, 65)}...</p>
+              <div className='flex-1 w-full md:w-auto'>
+                <h1 className='mt-2 text-2xl font-semibold text-zinc-100 text-start md:mt-0'>{items.title}</h1>
+                <p className='hidden mt-2 text-normal text-zinc-300 lg:block'>{items.desc.slice(0, 100)}...</p>
+                <p className='mt-2 text-normal text-zinc-300 md:block lg:hidden'>{items.desc.slice(0, 65)}...</p>
               </div>
-              <div className='flex mt-4 w-full md:w-auto items-center justify-center'>
-                <h2 className='text-zinc-100 text-3xl font-semibold flex'>₹ {items.price}</h2>
-                <button className='bg-red-100 text-red-700 border border-red-700 rounded p-2 ms-12' onClick={() => deleteItem(items._id)}>
+              <div className='flex items-center justify-center w-full mt-4 md:w-auto'>
+                <h2 className='flex text-3xl font-semibold text-zinc-100'>₹ {items.price}</h2>
+                <button className='p-2 text-red-700 bg-red-100 border border-red-700 rounded ms-12' onClick={() => deleteItem(items._id)}>
                   <TiDelete />
                 </button>
               </div>
@@ -95,15 +95,15 @@ const Cart = () => {
         </div>
       )}
       {cart && cart.length > 0 && (
-        <div className='w-full flex items-center justify-end bg-zinc-900'>
-          <div className='p-8 bg-zinc-800 rounded mr-12'>
-            <h1 className='text-3xl text-zinc-100 font-semibold'>Total Amount</h1>
-            <div className='mt-3 flex items-center justify-between text-xl text-zinc-400'>
+        <div className='flex items-center justify-end w-full bg-zinc-900'>
+          <div className='p-8 mr-12 rounded bg-zinc-800'>
+            <h1 className='text-3xl font-semibold text-zinc-100'>Total Amount</h1>
+            <div className='flex items-center justify-between mt-3 text-xl text-zinc-400'>
               <h2>{cart.length} books</h2>
               <h2>₹ {total}</h2>
             </div>
             <div className='w-[100%] mt-3'>
-              <button className='bg-green-300 rounded px-4 py-2 flex justify-center w-full text-green-700 font-semibold hover:bg-green-400 border border-green-700' onClick={PlaceOrder}>
+              <button className='flex justify-center w-full px-4 py-2 font-semibold text-green-700 bg-green-300 border border-green-700 rounded hover:bg-green-400' onClick={PlaceOrder}>
                 Place Your Order
               </button>
             </div>

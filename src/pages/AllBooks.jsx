@@ -7,15 +7,15 @@ const AllBooks = () => {
   const [Data, setData] =useState();
   useEffect(()=>{
     const fetch =async()=>{
-      const response=await axios.get("http://localhost:1090/api/v1/get-all-books");
+      const response=await axios.get("https://booknaren.onrender.com/api/v1/get-all-books");
       setData(response.data.data);
       
     };
     fetch();
   }, []);
   return (
-    <div className='bg-zinc-900 px-4'>
-      <h4 className=' text-4xl mt-4 text-blue-500 font-bold text-center'>
+    <div className='px-4 bg-zinc-900'>
+      <h4 className='mt-4 text-4xl font-bold text-center text-blue-500 '>
         BookShelf
       </h4>
       {!Data && (
@@ -23,7 +23,7 @@ const AllBooks = () => {
         <Loader />{" "}
         </div>
       )}
-      <div className='my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8 '>
+      <div className='grid grid-cols-1 gap-8 my-8 sm:grid-cols-3 md:grid-cols-4 '>
         {
           Data &&
           Data.map((items,i )=>(

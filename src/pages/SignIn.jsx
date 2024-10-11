@@ -25,7 +25,7 @@ const Signin = () => {
         alert('All fields are required');
       } else {
         console.log('Sending request to API with values:', values);
-        const response = await axios.post('http://localhost:1090/api/v1/sign-in', values);
+        const response = await axios.post('https://booknaren.onrender.com/api/v1/sign-in', values);
         console.log('Response from API:', response);
 
         if (response && response.data) {
@@ -49,7 +49,7 @@ const Signin = () => {
   return (
     <div className='flex items-center justify-center bg-zinc-900 h-[82vh]'>
       <div className='bg-zinc-800 m-6 text-zinc-800 p-8 md:w-[25vw] w-[50vw] shadow-xl rounded-xl'>
-        <h2 className='text-center text-blue-500 text-xl font-bold'>SignIn</h2>
+        <h2 className='text-xl font-bold text-center text-blue-500'>SignIn</h2>
         <form onSubmit={submit}>
           <div>
             <input
@@ -58,7 +58,7 @@ const Signin = () => {
               name='username'
               placeholder='Username'
               required
-              className='p-3 bg-zinc-900 mt-4 w-full rounded text-white'
+              className='w-full p-3 mt-4 text-white rounded bg-zinc-900'
               value={values.username}
               onChange={change}
             />
@@ -68,7 +68,7 @@ const Signin = () => {
               type='password'
               id='password'
               name='password'
-              className='p-3 mt-3 w-full rounded bg-zinc-900 text-white'
+              className='w-full p-3 mt-3 text-white rounded bg-zinc-900'
               placeholder='Password'
               required
               value={values.password}
@@ -78,13 +78,13 @@ const Signin = () => {
           <div className='flex items-center justify-center'>
             <button
               type='submit'
-              className='bg-blue-500 text-white p-4 rounded-xl w-full mt-3 hover:shadow-md hover:bg-blue-700 transition-all duration-300'
+              className='w-full p-4 mt-3 text-white transition-all duration-300 bg-blue-500 rounded-xl hover:shadow-md hover:bg-blue-700'
             >
               SignIn
             </button>
           </div>
         </form>
-        <p className='text-white text-sm mt-2 text-center'>
+        <p className='mt-2 text-sm text-center text-white'>
           New User?{' '}
           <Link to='/signup' className='hover:text-blue-500 hover:underline'>
             SignUp

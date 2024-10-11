@@ -37,7 +37,7 @@ const UpdateBook = () => {
       ) {
         alert('All fields are required');
       } else {
-        response = await axios.put('http://localhost:1090/api/v1/update-book', Data, { headers });
+        response = await axios.put('https://booknaren.onrender.com/api/v1/update-book', Data, { headers });
         setData({
           url: "",
           title: "",
@@ -55,23 +55,23 @@ const UpdateBook = () => {
   };
  useEffect(()=>{
    const fetch= async()=>{
-   const response =await axios.get(`http://localhost:1090/api/v1/get-bbok-by-id/${id}`);
+   const response =await axios.get(`https://booknaren.onrender.com/api/v1/get-bbok-by-id/${id}`);
    set
    }
  });
   return (
-    <div className='p-0 md:p-4 mb-24'>
-      <h1 className='text-2xl md:text-4xl font-semibold text-zinc-500 mb-8'>
+    <div className='p-0 mb-24 md:p-4'>
+      <h1 className='mb-8 text-2xl font-semibold md:text-4xl text-zinc-500'>
         UPDATE BOOK
       </h1>
-      <div className='p-4 bg-zinc-800 rounded'>
+      <div className='p-4 rounded bg-zinc-800'>
         <div>
           <label htmlFor="" className='text-zinc-400'>
             Image
           </label>
           <input
             type='text'
-            className='w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none'
+            className='w-full p-2 mt-2 outline-none bg-zinc-900 text-zinc-100'
             placeholder='Image'
             name='url'
             required
@@ -85,7 +85,7 @@ const UpdateBook = () => {
           </label>
           <input
             type='text'
-            className='w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none'
+            className='w-full p-2 mt-2 outline-none bg-zinc-900 text-zinc-100'
             placeholder='Title'
             name='title'
             required
@@ -99,7 +99,7 @@ const UpdateBook = () => {
           </label>
           <input
             type='text'
-            className='w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none'
+            className='w-full p-2 mt-2 outline-none bg-zinc-900 text-zinc-100'
             placeholder='Author'
             name='author'
             required
@@ -114,7 +114,7 @@ const UpdateBook = () => {
             </label>
             <input
               type='text'
-              className='w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none'
+              className='w-full p-2 mt-2 outline-none bg-zinc-900 text-zinc-100'
               placeholder='Language'
               name='language'
               required
@@ -128,7 +128,7 @@ const UpdateBook = () => {
             </label>
             <input
               type='number'
-              className='w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none'
+              className='w-full p-2 mt-2 outline-none bg-zinc-900 text-zinc-100'
               placeholder='Price'
               name='price'
               required
@@ -143,7 +143,7 @@ const UpdateBook = () => {
           </label>
           <textarea
             type='text'
-            className='w-full mt-2 bg-zinc-900 text-zinc-100 p-2 outline-none'
+            className='w-full p-2 mt-2 outline-none bg-zinc-900 text-zinc-100'
             placeholder='Description'
             name='desc'
             required
@@ -152,7 +152,7 @@ const UpdateBook = () => {
             rows='5'
           />
         </div>
-        <button className='mt-4 px-3 bg-blue-500 rounded py-2 font-semibold text-white hover:bg-blue-600 transition-all duration-300' onClick={submit}>Submit</button>
+        <button className='px-3 py-2 mt-4 font-semibold text-white transition-all duration-300 bg-blue-500 rounded hover:bg-blue-600' onClick={submit}>Submit</button>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     const id = allOrders[i]._id;
     const response = await axios.put(
-      `http://localhost:1090/api/v1/update-status/${id}`,
+      `https://booknaren.onrender.com/api/v1/update-status/${id}`,
       Values,
       { headers }
     );
@@ -38,7 +38,7 @@ const AllOrders = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1090/api/v1/get-all-orders",
+          "https://booknaren.onrender.com/api/v1/get-all-orders",
           { headers }
         );
 
@@ -60,10 +60,10 @@ const AllOrders = () => {
       )}
       {allOrders && allOrders.length > 0 && (
         <div className="h-[100%] p-0 md:p-4 text-zinc-100">
-          <h1 className="text-3xl md:text-5xl font-semibold text-zinc-500 mb-8">
+          <h1 className="mb-8 text-3xl font-semibold md:text-5xl text-zinc-500">
             All Orders
           </h1>
-          <div className="mt-4 bg-zinc-800 w-full rounded py-2 px-4 flex gap-2">
+          <div className="flex w-full gap-2 px-4 py-2 mt-4 rounded bg-zinc-800">
             <div className="w-[3%]">
               <h1 className="text-center">Sr.</h1>
             </div>
@@ -86,7 +86,7 @@ const AllOrders = () => {
           {allOrders.map((items, i) => (
             <div
               key={i}
-              className="bg-zinc-800 w-full rounded py-2 px-4 flex gap-2 hover:bg-zinc-900 hover:cursor-pointer transition-all duration-300"
+              className="flex w-full gap-2 px-4 py-2 transition-all duration-300 rounded bg-zinc-800 hover:bg-zinc-900 hover:cursor-pointer"
             >
               <div className="w-[3%]">
                 <h1 className="text-center">{i + 1}</h1>
@@ -108,7 +108,7 @@ const AllOrders = () => {
               <div className="w-[30%] md:w-[16%]">
                 <h1 className="font-semibold">
                   <button
-                    className="hover:scale-105 transition-all duration-300"
+                    className="transition-all duration-300 hover:scale-105"
                     onClick={() => setOptions(i)}
                   >
                     {items.status === "Order Placed" ? (
@@ -140,7 +140,7 @@ const AllOrders = () => {
                         ))}
                       </select>
                       <button
-                        className="text-green-500 hover:text-pink-600 mx-2"
+                        className="mx-2 text-green-500 hover:text-pink-600"
                         onClick={() => {
                           setOptions(-1);
                           submitChanges(i);

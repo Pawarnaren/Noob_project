@@ -14,7 +14,7 @@ const UserOrderHistory = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:1090/api/v1/get-order-history', { headers });
+        const response = await axios.get('https://booknaren.onrender.com/api/v1/get-order-history', { headers });
         
         setOrderHistory(response.data.data);
       } catch (error) {
@@ -40,31 +40,31 @@ const UserOrderHistory = () => {
 
       {orderHistory && orderHistory.length > 0 && (
         <div className='sm:w-full md:p-4 text-zinc-100'>
-          <h1 className='text-3xl md:text-5xl font-semibold text-zinc-500 mb-8'>Your Order History</h1>
-          <div className='mt-4 bg-zinc-800 w-full rounded overflow-x-auto'>
+          <h1 className='mb-8 text-3xl font-semibold md:text-5xl text-zinc-500'>Your Order History</h1>
+          <div className='w-full mt-4 overflow-x-auto rounded bg-zinc-800'>
             <table className='min-w-full divide-y divide-zinc-700'>
               <thead className='bg-zinc-900'>
                 <tr>
-                  <th className='py-3 px-6 text-left text-zinc-100'>Sr.</th>
-                  <th className='py-3 px-6 text-left text-zinc-100'>Books</th>
-                  <th className='py-3 px-6 text-left text-zinc-100'>Description</th>
-                  <th className='py-3 px-6 text-left text-zinc-100'>Price</th>
-                  <th className='py-3 px-6 text-left text-zinc-100'>Status</th>
-                  <th className='py-3 px-6 text-left text-zinc-100 hidden md:table-cell'>Mode</th>
+                  <th className='px-6 py-3 text-left text-zinc-100'>Sr.</th>
+                  <th className='px-6 py-3 text-left text-zinc-100'>Books</th>
+                  <th className='px-6 py-3 text-left text-zinc-100'>Description</th>
+                  <th className='px-6 py-3 text-left text-zinc-100'>Price</th>
+                  <th className='px-6 py-3 text-left text-zinc-100'>Status</th>
+                  <th className='hidden px-6 py-3 text-left text-zinc-100 md:table-cell'>Mode</th>
                 </tr>
               </thead>
-              <tbody className='bg-zinc-800 divide-y divide-zinc-700'>
+              <tbody className='divide-y bg-zinc-800 divide-zinc-700'>
                 {orderHistory.map((item, index) => (
                   <tr key={index} className='hover:bg-zinc-900 hover:cursor-pointer'>
-                    <td className='py-4 px-6'>{index + 1}</td>
-                    <td className='py-4 px-6'>
+                    <td className='px-6 py-4'>{index + 1}</td>
+                    <td className='px-6 py-4'>
                       <Link to={`/view-book-details/${item.book._id}`} className='hover:text-blue-300'>
                         {item.book.title}
                       </Link>
                     </td>
-                    <td className='py-4 px-6'>{item.book.desc.slice(0, 50)}...</td>
-                    <td className='py-4 px-6'>₹{item.book.price}</td>
-                    <td className='py-4 px-6 font-semibold'>
+                    <td className='px-6 py-4'>{item.book.desc.slice(0, 50)}...</td>
+                    <td className='px-6 py-4'>₹{item.book.price}</td>
+                    <td className='px-6 py-4 font-semibold'>
                       {item.status === 'Order Placed' ? (
                         <span className='text-yellow-500'>{item.status}</span>
                       ) : item.status === 'Cancelled' ? (
@@ -73,7 +73,7 @@ const UserOrderHistory = () => {
                         <span>{item.status}</span>
                       )}
                     </td>
-                    <td className='py-4 px-6 hidden md:table-cell'>
+                    <td className='hidden px-6 py-4 md:table-cell'>
                       <span className='text-sm text-zinc-400'>COD</span>
                     </td>
                   </tr>
