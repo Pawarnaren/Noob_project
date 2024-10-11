@@ -8,7 +8,7 @@ const BookCard = ({ data, favorite }) => {
     bookid: data._id
   };
   const removeBook=async()=>{
-    const response= await axios.put("https://noob-project-backend.onrender.com/api/v1/delete-book-from-favorite", {},{headers});
+    const response= await axios.put("/api/v1/delete-book-from-favorite", {},{headers});
     alert(response.data.message);
 
   };

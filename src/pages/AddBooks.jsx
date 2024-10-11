@@ -34,7 +34,7 @@ const AddBooks = () => {
       ) {
         alert('All fields are required');
       } else {
-        response = await axios.post('https://noob-project-backend.onrender.com/api/v1/add-book', Data, { headers });
+        response = await axios.post('/api/v1/add-book', Data, { headers });
         setData({
           url: "",
           title: "",

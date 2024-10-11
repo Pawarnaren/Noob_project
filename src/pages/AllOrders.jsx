@@ -26,7 +26,7 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     const id = allOrders[i]._id;
     const response = await axios.put(
-      `https://noob-project-backend.onrender.com/api/v1/update-status/${id}`,
+      `/api/v1/update-status/${id}`,
       Values,
       { headers }
     );
@@ -38,7 +38,7 @@ const AllOrders = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "https://noob-project-backend.onrender.com/api/v1/get-all-orders",
+          "/api/v1/get-all-orders",
           { headers }
         );
 

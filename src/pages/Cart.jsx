@@ -18,7 +18,7 @@ const Cart = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get("https://noob-project-backend.onrender.com/api/v1/get-user-cart", { headers });
+        const response = await axios.get("/api/v1/get-user-cart", { headers });
         setCart(response.data.data);
       } catch (error) {
         console.error("Error fetching cart:", error);
@@ -29,7 +29,7 @@ const Cart = () => {
 
   const deleteItem = async (bookid) => {
     try {
-      const response = await axios.put("https://noob-project-backend.onrender.com/api/v1/delete-from-cart", {}, {
+      const response = await axios.put("/api/v1/delete-from-cart", {}, {
         headers: {
           ...headers,
           bookid
@@ -54,7 +54,7 @@ const Cart = () => {
 
   const PlaceOrder = async () => {
     try {
-      const response = await axios.post("https://noob-project-backend.onrender.com/api/v1/place-order", { order: cart }, { headers });
+      const response = await axios.post("/api/v1/place-order", { order: cart }, { headers });
       alert(response.data.message);
       navigate("/profile/orderHistory");
     } catch (error) {
