@@ -25,7 +25,7 @@ const Signin = () => {
         alert('All fields are required');
       } else {
         console.log('Sending request to API with values:', values);
-        const response = await axios.post('/api/v1/sign-in', values);
+        const response = await axios.post('https://noob-project-backend.onrender.com/api/v1/sign-in', values);
         console.log('Response from API:', response);
 
         if (response && response.data) {
@@ -35,6 +35,7 @@ const Signin = () => {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("role", response.data.role);
           navigate('/profile');
+          
         } else {
           console.error('Invalid response structure:', response);
           alert('Invalid response from server');
