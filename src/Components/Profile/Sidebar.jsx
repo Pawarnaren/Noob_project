@@ -11,7 +11,7 @@ const Sidebar = ({data}) => {
   return (
     <div className='bg-zinc-800 p-4 rounded flex flex-col items-center justify-between h-auto lg:h-[100%]'>
       <div className='flex flex-col items-center justify-center p-4 rounded bg-zinc-800'> 
-      <img src="../images/download.png" alt="hello"  className='h-[10vh] '/>
+      <img src="/download.png" alt="hello" className='h-[10vh]' />
       <p className='mt-1 text-xl font-semibold text-zinc-100'>{data.username}</p>
       
       <p className='mt-1 text-normal text-zinc-300'>{data.email}</p>
