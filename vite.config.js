@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://booknaren.onrender.com/', 
+        target: 'https://noob-project-backend.onrender.com/', 
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

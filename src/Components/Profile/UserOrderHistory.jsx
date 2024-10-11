@@ -14,7 +14,7 @@ const UserOrderHistory = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('https://booknaren.onrender.com/api/v1/get-order-history', { headers });
+        const response = await axios.get('https://noob-project-backend.onrender.com/api/v1/get-order-history', { headers });
         
         setOrderHistory(response.data.data);
       } catch (error) {

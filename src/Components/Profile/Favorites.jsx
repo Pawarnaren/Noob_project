@@ -9,7 +9,7 @@ const Favorites = () => {
   };
   useEffect(()=>{
     const fetch= async()=>{
-      const response =await axios.get("https://booknaren.onrender.com/api/v1/get-favorite-books", {headers});
+      const response =await axios.get("https://noob-project-backend.onrender.com/api/v1/get-favorite-books", {headers});
       setFavoriteBooks(response.data.data);
     }
     fetch();

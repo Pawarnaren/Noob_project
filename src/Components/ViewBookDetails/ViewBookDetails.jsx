@@ -20,7 +20,7 @@ const ViewBookDetails = () => {
     const navigate=useNavigate();
     useEffect(()=>{
         const fetch=async()=>{
-            const response= await axios.get(`https://booknaren.onrender.com/api/v1/get-book-by-id/${id}`);
+            const response= await axios.get(`https://noob-project-backend.onrender.com/api/v1/get-book-by-id/${id}`);
             // console.log(response);
             setData(response.data.data);
         };
@@ -32,18 +32,18 @@ const ViewBookDetails = () => {
       bookid: id
     };
     const setFavorite= async()=>{
-      const response =await axios.put("https://booknaren.onrender.com/api/v1/add-book-to-favorite",{},{headers});
+      const response =await axios.put("https://noob-project-backend.onrender.com/api/v1/add-book-to-favorite",{},{headers});
 
       alert(response.data.message);
     }
 
     const handleCart=async()=>{
-      const response=await axios.put("https://booknaren.onrender.com/api/v1/add-book-to-cart", {}, {headers});
+      const response=await axios.put("https://noob-project-backend.onrender.com/api/v1/add-book-to-cart", {}, {headers});
 
       alert(response.data.message);
     }
     const delete_book=async()=>{
-      const response =await axios.delete("https://booknaren.onrender.com/api/v1/delete-book",{headers});
+      const response =await axios.delete("https://noob-project-backend.onrender.com/api/v1/delete-book",{headers});
       alert(response.data.message);
       navigate('/all-books');
     }
@@ -51,7 +51,7 @@ const ViewBookDetails = () => {
   return (
    < >
    {Data && (
-     <div className='flex flex-col items-center justify-center gap-8 px-4 py-8  md:px-12 bg-zinc-900 md:flex-row'>
+     <div className='flex flex-col items-center justify-center gap-8 px-4 py-8 md:px-12 bg-zinc-900 md:flex-row'>
      <div className='bg-zinc-800 rounded p-4 h-[60vh] md:h-[84vh] w-3/6 flex flex-col p-3 gap-6 items-center justify-center'>
      {" "}
      <div className='flex flex-col items-center justify-center gap-4'>

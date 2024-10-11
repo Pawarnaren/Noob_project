@@ -10,7 +10,7 @@ const Settings = () => {
  const[profileData, setProfileData]=useState();
   useEffect(()=>{
     const fetch= async ()=>{
-      const response=await axios.get('https://booknaren.onrender.com/api/v1/get-user-information', {headers});
+      const response=await axios.get('https://noob-project-backend.onrender.com/api/v1/get-user-information', {headers});
       setProfileData(response.data);
       setValue({address: response.data.address});
     };
@@ -22,7 +22,7 @@ setValue({...value, [name]: value});
  };
 
  const submitAddress=async()=>{
-  const response =await axios.put("https://booknaren.onrender.com/api/v1/update-address", value,{headers});
+  const response =await axios.put("https://noob-project-backend.onrender.com/api/v1/update-address", value,{headers});
   alert(response.data.message);
  }
   return (
