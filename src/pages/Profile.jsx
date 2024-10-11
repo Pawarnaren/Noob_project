@@ -16,7 +16,7 @@ const Profile = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get("/api/v1/get-user-information", { headers });
+      const response = await axios.get("https://noob-project-backend.onrender.com/api/v1/get-user-information", { headers });
       console.log(response.data);
       setProfile(response.data); // Log the response data for debugging
     };

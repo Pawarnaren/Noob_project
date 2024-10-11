@@ -28,7 +28,7 @@ const Signup = () => {
       ) {
         alert('All fields are required');
       } else {
-        const response = await axios.post('/api/v1/sign-up', values);
+        const response = await axios.post('https://noob-project-backend.onrender.com/api/v1/sign-up', values);
         alert(response.data.message);
         navigate('/signin');
       }

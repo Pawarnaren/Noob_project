@@ -37,7 +37,7 @@ const UpdateBook = () => {
       ) {
         alert('All fields are required');
       } else {
-        response = await axios.put('/api/v1/update-book', Data, { headers });
+        response = await axios.put('https://noob-project-backend.onrender.com/api/v1/update-book', Data, { headers });
         setData({
           url: "",
           title: "",
@@ -55,7 +55,7 @@ const UpdateBook = () => {
   };
  useEffect(()=>{
    const fetch= async()=>{
-   const response =await axios.get(`/api/v1/get-bbok-by-id/${id}`);
+   const response =await axios.get(`https://noob-project-backend.onrender.com/api/v1/get-bbok-by-id/${id}`);
    set
    }
  });
